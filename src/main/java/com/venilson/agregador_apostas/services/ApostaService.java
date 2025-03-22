@@ -21,4 +21,8 @@ public class ApostaService {
     public List<Aposta> listar() {
         return apostaRepository.findAll();
     }
+
+    public Aposta buscarPorId(Long id) {
+        return apostaRepository.findById(id).orElse(null);
+    }
 }

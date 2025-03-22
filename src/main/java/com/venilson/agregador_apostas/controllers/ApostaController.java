@@ -1,6 +1,7 @@
 package com.venilson.agregador_apostas.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class ApostaController {
     @PostMapping
     public ResponseEntity<Aposta> salvar(@RequestBody Aposta aposta) {
         Aposta apostaSalva = apostaService.salvar(aposta);
-        return ResponseEntity.ok(apostaSalva);
+        return ResponseEntity.status(HttpStatus.CREATED).body(apostaSalva);
     }
 
     @GetMapping
